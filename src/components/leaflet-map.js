@@ -22,12 +22,23 @@ const layerDef = {
     accessToken: process.env.REACT_APP_MAPBOX_TOKEN,
 }
 
+const popupData = {
+    name: 'Melton',
+    numStreets: 182,
+    numAddresses: 5344,
+    CensusPopulation2016: 8069,
+    CensusPrivDwellings2016: 3482,
+    NumPollingBooths2019: 3 
+}
+
 
 // Leaftlet Mapping Component
 function LeafletMap() {
     console.log(layerDef);
     return (
-        <MapContainer center={[-37.68046762370196, 144.5923961371349]} zoom={13}>
+        <MapContainer center={[-37.68046762370196, 144.5923961371349]}
+            zoom={10}
+            style={{ height: "100vh" }} >
 
             <TileLayer
                 url={layerDef.url}
@@ -39,10 +50,32 @@ function LeafletMap() {
                 accessToken={layerDef.accessToken}
             />
 
-            <Marker position={[51.505, -0.09]}>
+            <Marker position={[-37.67564163,144.61176001]}>
         
                 <Popup>
-                    A pretty CSS3 popup. < br /> Easily customizable.
+                    <h3>{popupData.name}</h3>
+                    <table>
+                        <tr>
+                            <td><strong># Streets</strong></td>
+                            <td>{popupData.numStreets}</td>
+                        </tr>
+                        <tr>
+                            <td><strong># Addresses</strong></td>
+                            <td>{popupData.numAddresses}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Population (2016)</strong></td>
+                            <td>{popupData.CensusPopulation2016}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Private Dwellings (2016)</strong></td>
+                            <td>{popupData.CensusPrivDwellings2016}</td>
+                        </tr>
+                        <tr>
+                            <td><strong># Polling Booths (2019)</strong></td>
+                            <td>{popupData.NumPollingBooths2019}</td>
+                        </tr>
+                    </table>
                 </Popup>
     
             </Marker>
