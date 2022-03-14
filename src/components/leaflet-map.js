@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet";
 
 /*
 
@@ -22,6 +22,7 @@ const layerDef = {
     accessToken: process.env.REACT_APP_MAPBOX_TOKEN,
 }
 
+// Example Popup for "Melton" 
 const popupData = {
     name: 'Melton',
     numStreets: 182,
@@ -32,12 +33,15 @@ const popupData = {
 }
 
 
+// -37.66038207151701, 144.43080338900472 (BM)
+// -37.68046762370196, 144.5923961371349 (Mel)
+
 // Leaftlet Mapping Component
 function LeafletMap() {
     console.log(layerDef);
     return (
-        <MapContainer center={[-37.68046762370196, 144.5923961371349]}
-            zoom={10}
+        <MapContainer center={[-37.66038207151701, 144.43080338900472]}
+            zoom={11}
             style={{ height: "100vh" }} >
 
             <TileLayer
@@ -79,6 +83,12 @@ function LeafletMap() {
                 </Popup>
     
             </Marker>
+
+            <Marker position={[-37.66038207151701, 144.43080338900472]}>
+            
+            </Marker>
+
+            {/*<GeoJSON data={VicLocalities} />*/}
 
 
         </MapContainer>
