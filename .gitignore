@@ -26,5 +26,5 @@ yarn-error.log*
 .env
 
 # data files
-src/data/*
+src/data/vic_electoral_localities.json
 

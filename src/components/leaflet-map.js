@@ -1,6 +1,8 @@
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet";
 
-import VIC226 from "../data/VIC226.json";
+import HAWKE from "../data/HAWKEBoundary.json";
+
+// HAWKE = VIC239
 
 /*
 
@@ -46,7 +48,7 @@ const outerBounds = [
 
 // Leaftlet Mapping Component
 function LeafletMap() {
-    console.log(VIC226);
+    console.log(HAWKE);
     return (
         <MapContainer bounds={outerBounds}
             zoom={11}
@@ -96,12 +98,12 @@ function LeafletMap() {
             
             </Marker>
 
-            <GeoJSON key="VIC226" data={VIC226}
+            <GeoJSON key="HAWKE" data={HAWKE}
                 style={() => ({
                     color: '#4a83ec',
                     weight: 0.5,
                     fillColor: "#1a1d62",
-                    fillOpacity: 1,
+                    fillOpacity: 0.1,
                    })} />
 
 
