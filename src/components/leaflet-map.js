@@ -1,5 +1,7 @@
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet";
 
+import VIC226 from "../data/VIC226.json";
+
 /*
 
 OpenStreet Map Tile Layer
@@ -36,11 +38,17 @@ const popupData = {
 // -37.66038207151701, 144.43080338900472 (BM)
 // -37.68046762370196, 144.5923961371349 (Mel)
 
+// map bounds
+const outerBounds = [
+    [-37.46249769082391, 144.23832855789476],
+    [-37.749717128265445, 144.9222274768595],
+  ]
+
 // Leaftlet Mapping Component
 function LeafletMap() {
-    console.log(layerDef);
+    console.log(VIC226);
     return (
-        <MapContainer center={[-37.66038207151701, 144.43080338900472]}
+        <MapContainer bounds={outerBounds}
             zoom={11}
             style={{ height: "100vh" }} >
 
@@ -88,7 +96,13 @@ function LeafletMap() {
             
             </Marker>
 
-            {/*<GeoJSON data={VicLocalities} />*/}
+            <GeoJSON key="VIC226" data={VIC226}
+                style={() => ({
+                    color: '#4a83ec',
+                    weight: 0.5,
+                    fillColor: "#1a1d62",
+                    fillOpacity: 1,
+                   })} />
 
 
         </MapContainer>
