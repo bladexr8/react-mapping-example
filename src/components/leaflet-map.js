@@ -33,7 +33,8 @@ const popupData = {
     numAddresses: 5344,
     CensusPopulation2016: 8069,
     CensusPrivDwellings2016: 3482,
-    NumPollingBooths2019: 3 
+    NumPollingBooths2019: 3,
+    Census2016Summary: 'https://quickstats.censusdata.abs.gov.au/census_services/getproduct/census/2016/quickstat/SSC21631?opendocument',
 }
 
 
@@ -67,8 +68,16 @@ function LeafletMap() {
             <Marker position={[-37.67564163,144.61176001]}>
         
                 <Popup>
-                    <h3>{popupData.name}</h3>
+                    <a href={popupData.Census2016Summary} target="_blank">{popupData.name}</a>
                     <table>
+                        <tr>
+                            <td><strong>Population (2016)</strong></td>
+                            <td>{popupData.CensusPopulation2016}</td>
+                        </tr>
+                        <tr>
+                            <td><strong># Private Dwellings (2016)</strong></td>
+                            <td>{popupData.CensusPrivDwellings2016}</td>
+                        </tr>
                         <tr>
                             <td><strong># Streets</strong></td>
                             <td>{popupData.numStreets}</td>
@@ -77,19 +86,8 @@ function LeafletMap() {
                             <td><strong># Addresses</strong></td>
                             <td>{popupData.numAddresses}</td>
                         </tr>
-                        <tr>
-                            <td><strong>Population (2016)</strong></td>
-                            <td>{popupData.CensusPopulation2016}</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Private Dwellings (2016)</strong></td>
-                            <td>{popupData.CensusPrivDwellings2016}</td>
-                        </tr>
-                        <tr>
-                            <td><strong># Polling Booths (2019)</strong></td>
-                            <td>{popupData.NumPollingBooths2019}</td>
-                        </tr>
                     </table>
+                    
                 </Popup>
     
             </Marker>

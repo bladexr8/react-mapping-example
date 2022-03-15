@@ -27,4 +27,5 @@ yarn-error.log*
 
 # data files
 src/data/vic_electoral_localities.json
+src/data/vic_fed_boundaries.json
 
