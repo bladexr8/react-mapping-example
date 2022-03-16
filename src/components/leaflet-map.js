@@ -52,7 +52,6 @@ function LeafletMap() {
     console.log(HAWKE);
     return (
         <MapContainer bounds={outerBounds}
-            zoom={11}
             style={{ height: "100vh" }} >
 
             <TileLayer
@@ -68,23 +67,23 @@ function LeafletMap() {
             <Marker position={[-37.67564163,144.61176001]}>
         
                 <Popup>
-                    <a href={popupData.Census2016Summary} target="_blank">{popupData.name}</a>
+                    <a href={popupData.Census2016Summary} target="_blank" rel="noreferrer">{popupData.name}</a>
                     <table>
                         <tr>
-                            <td><strong>Population (2016)</strong></td>
-                            <td>{popupData.CensusPopulation2016}</td>
+                            <td style={{width:'90%'}}>Population (2016)</td>
+                            <td><strong>{popupData.CensusPopulation2016.toLocaleString(undefined)}</strong></td>
                         </tr>
                         <tr>
-                            <td><strong># Private Dwellings (2016)</strong></td>
-                            <td>{popupData.CensusPrivDwellings2016}</td>
+                            <td style={{width:'90%'}}># Streets</td>
+                            <td><strong>{popupData.numStreets.toLocaleString(undefined)}</strong></td>
                         </tr>
                         <tr>
-                            <td><strong># Streets</strong></td>
-                            <td>{popupData.numStreets}</td>
+                            <td style={{width:'90%'}}># Addresses</td>
+                            <td><strong>{popupData.numAddresses.toLocaleString(undefined)}</strong></td>
                         </tr>
                         <tr>
-                            <td><strong># Addresses</strong></td>
-                            <td>{popupData.numAddresses}</td>
+                            <td style={{width:'90%'}}># Private Dwellings (2016)</td>
+                            <td><strong>{popupData.CensusPrivDwellings2016.toLocaleString(undefined)}</strong></td>
                         </tr>
                     </table>
                     
